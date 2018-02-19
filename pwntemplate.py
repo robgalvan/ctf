@@ -19,7 +19,7 @@ if __name__ == "__main__":
         r = remote(sys.argv[1], int(sys.argv[2]))
         exploit(r)
     else:
-        r = process('')
+        r = process('')     #put binary here
         print util.proc.pidof(r)
         #r = process("./LOLgame", env={"LD_PRELOAD" : "./libc.so.6.remote"})
         pause()
