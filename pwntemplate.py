@@ -2,7 +2,7 @@
 from pwn import *
 import sys
 
-
+context.terminal = ['tmux','splitw','-h']
 
 def exploit(r):
    
@@ -21,6 +21,12 @@ if __name__ == "__main__":
     else:
         r = process('')     #put binary here
         print util.proc.pidof(r)
+        gdb_cmd = [
+            "c"
+
+
+        ]
+        gdb.attach(p, gdbscript = "\n".join(gd_cmd))
         #r = process("./LOLgame", env={"LD_PRELOAD" : "./libc.so.6.remote"})
         pause()
         exploit(r)
