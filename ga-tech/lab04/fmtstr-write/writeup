@@ -1,0 +1,12 @@
+http://codearcana.com/posts/2013/05/02/introduction-to-format-string-exploits.html
+
+We need to change a fixed address in program to badf00d hexvalue.
+You can use %hn which overwrites the given address with number of bytes printed till now
+
+Here badf00d = 195948557
+but we cannot print out these many number of chars to stdout, so we will break the 
+process into lower level and higher level bits and write
+bad = 2989
+f00d = 61453
+
+A very good explanation is in the link above

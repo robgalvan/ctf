@@ -1,0 +1,16 @@
+Lab09: simple-aeg
+=================
+
+  Automatic Exploit Generation(AEG) is one of interesting topic in binary exploitation.
+  In this challenge, the service provides slightly different binaries every time you connected.
+  Since time limit is quite short, an automatic exploit generator is required to hack.
+  
+  nc trypticon.gtisc.gatech.edu 8025
+  nc trypticon.gtisc.gatech.edu 9025
+
+- target    : target
+- arch      : 32
+- level     : 20
+- points    : 20
+- release   : 11-03-2015 00:00:00
+- deadline  : 11-10-2015 00:00:00

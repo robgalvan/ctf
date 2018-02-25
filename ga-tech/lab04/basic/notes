@@ -1,0 +1,2 @@
+I offset the program by 268 and gave the address of system() , I then gave the input address of /bing/sh followed by “/n” and in the end “/bin/cat /pro/flag” to return into libc and print the flag.
+I did all of this interactively through terminal

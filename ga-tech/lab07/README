@@ -1,0 +1,30 @@
+----------------
+Lab07: heap-ovfl
+----------------
+
+Heap overflow. In this week, you will learn the way of exploiting heap-related
+vulnerabilities; in short, these are the memory bugs related to malloc() (not a
+local variables on the stack). It is a bit comlicated, however, once you get the
+core idea, you will truly be able to understand how the applications behave.
+
+* Problems
+
+  + [level 01] uaf-basic            [20 points]
+  + [level 02] heap-spray           [20 points]
+  + [level 03] dlmalloc1            [20 points]
+  + [level 04] dlmalloc2            [20 points]
+  + [level 05] dlmalloc3            [20 points]
+  + [level 06] dlmalloc4            [20 points]
+  + [level 07] ptmalloc             [20 points]
+  + [level 08] linked-list          [20 points]
+  + [level 09] registration         [20 points]
+  + [level 10] storage              [20 points]
+  + [level 11] linked-list2         [20 points]
+
+* Refs
+  - http://phrack.org/issues/57/8.html
+  - http://www.win.tue.nl/~aeb/linux/hh/hh-11.html
+  - http://www.mathyvanhoef.com/2013/02/understanding-heap-exploiting-heap.html
+  - http://gee.cs.oswego.edu/dl/html/malloc.html
+  - The Shellcoder's Handbook: Discovering and Exploiting Security Holes, p89-107
+     (https://www.google.com/search?btnG=1&pws=0&q=The+Shellcoder’s+Handbook:+Discovering+and+Exploiting+Security+Holes)

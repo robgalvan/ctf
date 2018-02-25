@@ -1,0 +1,40 @@
+-------------
+Lab06: remote
+-------------
+
+Two set of services are ready for exploitation.
+
+  server-1: trypticon.gtisc.gatech.edu [8000-8011]
+  server-2: trypticon.gtisc.gatech.edu [9000-9011]
+
+For example, to connect to the first problem,
+
+  $ nc trypticon.gtisc.gatech.edu 8000
+    or
+  $ nc trypticon.gtisc.gatech.edu 9000
+
+FYI, our server runs on Ubuntu 14.04.2 LTS:
+
+  - Linux 3.13.0-55-generic x86_64
+  - d99432843a9b4f19b572345d4dd023ab  /lib32/libc.so.6
+  - d99432843a9b4f19b572345d4dd023ab  /lib/libc.so.6
+  - 3f6aaa980b58f7c7590dee12d731e099  /lib/x86_64-linux-gnu/libc.so.6
+  - e906797e88d03962896ee6b7ba9d88b7  /lib/ld-linux.so.2
+
+* Problems
+
+  + [level 01] passwd               [20 points]
+  + [level 02] mini-shellshock      [20 points]
+  + [level 03] jmp-to-where2        [20 points]
+  + [level 04] obscure              [20 points]
+  + [level 05] ieee754              [20 points]
+  + [level 06] diehard              [20 points]
+  + [level 07] array                [20 points]
+  + [level 08] guess                [20 points]
+  + [level 09] chat                 [20 points]
+  + [level 10] 2kills               [20 points]
+  + [level 11] rop-sorting          [20 points]
+  + [level 12] 2048                 [20 points]
+
+* Refs
+  - https://docs.python.org/3/howto/sockets.html

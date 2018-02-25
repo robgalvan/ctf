@@ -1,0 +1,47 @@
+Lab07: ptmalloc
+===============
+
+  glibc's malloc(), a variant of dlmalloc, called ptmalloc2, has a full
+  set of protections. To get a flag, you probably have to bypass below
+  errors.
+  
+  (see malloc.c)
+     3348: errstr = "malloc(): memory corruption (fast)";
+     3382: errstr = "malloc(): smallbin double linked list corrupted";
+     3605: errstr = "malloc(): corrupted unsorted chunks";
+     3712: errstr = "malloc(): corrupted unsorted chunks 2";
+     3827: errstr = "free(): invalid pointer";
+     3838: errstr = "free(): invalid size";
+     3875: errstr = "free(): invalid next size (fast)";
+     3900: errstr = "double free or corruption (fasttop)";
+     3915: errstr = "invalid fastbin entry (free)";
+     3936: errstr = "double free or corruption (top)";
+     3944: errstr = "double free or corruption (out)";
+     3950: errstr = "double free or corruption (!prev)";
+     3958: errstr = "free(): invalid next size (normal)";
+     3993: errstr = "free(): corrupted unsorted chunks";
+     4214: errstr = "realloc(): invalid old size";
+     4230: errstr = "realloc(): invalid next size";
+  
+  Here is a useful tip to debug the malloc/free() calls by
+  using villoc.py.
+  
+  $ ./target 2>trace.log
+  ...
+  $ bin/villoc.py trace.log trace.html
+  
+  The target binary is:
+  
+      CANARY    : ENABLED
+      FORTIFY   : disabled
+      NX        : ENABLED
+      PIE       : ENABLED
+      RELRO     : FULL
+
+- target    : target
+- arch      : 32
+- level     : 30
+- points    : 20
+- release   : 10-20-2015 00:00:00
+- deadline  : 10-27-2015 00:00:00
+- hashval   : 1974D2F7

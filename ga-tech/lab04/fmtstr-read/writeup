@@ -1,0 +1,4 @@
+-The flag is loaded in memory at fixed location.
+-We can push this location in memory by giving it as an input, then we can use %x any number of times to see
+after how much blocks is the address being written on mem.
+-for the paticular position use %

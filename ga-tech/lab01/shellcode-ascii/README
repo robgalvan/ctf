@@ -1,0 +1,47 @@
+desc
+====
+
+This problem will prepare you to write shellcode with pure alphanumeric 
+characters to evade the detection of simple filtering mechanisms.
+Write a shellcode program with pure alphanumeric characters
+that reads the flag from /proc/flag and submit the flag.
+
+
+points
+======
+30
+
+
+release
+=======
+08-18-2015 00:00:00
+
+
+deadline
+========
+08-25-2015 00:00:00
+
+
+hashval
+=======
+A5D60A81
+
+
+target
+======
+target
+
+
+instruction
+===========
+
+ ; build
+ $ make
+
+ ; run your shellcode
+ $ cat readflag.bin | ./target
+
+ ; submit your flag
+ $ submit -l lab01 -p shellcode-ascii -f <flag-file>
+
+ ; note: you must get your flag through the ./tareget binary

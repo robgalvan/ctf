@@ -1,0 +1,29 @@
+---------------
+Lab04: dep-aslr
+---------------
+
+From this week, data sections in each binary (e.g., stack and heap)
+are not executable anymore; often konwn as W^X, NX or DEP. Then, where
+to place your shellcode? In fact, there are still many different ways
+to bypass these protections. Please study reference materials first
+and have fun with binaries.
+
+* Problems
+
+  + [level 01] basic                [20 points]
+  + [level 02] fmtstr-digging       [20 points]
+  + [level 03] fmtstr-read          [20 points]
+  + [level 04] moving-target        [20 points]
+  + [level 05] fmtstr-write         [20 points]
+  + [level 06] fd-const             [20 points]
+  + [level 07] crashme              [20 points]
+  + [level 08] brainfxxk            [20 points]
+  + [level 09] profile              [20 points]
+  + [level 10] mini-sudo            [20 points]
+
+You need 110 points to get the full grade.
+
+* Refs
+  - https://www.blackhat.com/presentations/bh-europe-09/Fritsch/Blackhat-Europe-2009-Fritsch-Bypassing-aslr-slides.pdf
+  - http://phrack.org/issues/58/4.html
+  - https://crypto.stanford.edu/cs155/papers/formatstring-1.2.pdf

@@ -1,0 +1,24 @@
+------------
+Lab09: misc2
+------------
+
+Various topics are covered in this lab, including sandboxes, kernel exploits
+and signal-oriented programming.
+
+* Problems
+
+  + [level 01] sandbox-chroot       [20 points]
+  + [level 02] sandbox-ptrace       [20 points]
+  + [level 03] sandbox-seccomp      [20 points]
+  + [level 04] sandbox-ptrace2      [20 points]
+  + [level 05] simple-aeg           [20 points]
+  + [level 06] sandbox-pin          [20 points]
+  + [level 07] srop                 [20 points]
+  + [level 08] kproc-bufovfl        [20 points]
+  + [level 09] kproc-zeropage       [20 points]
+  + [level 10] kproc-ret2dir        [20 points]
+  + [level 11] kproc-uaf            [20 points]
+
+* Refs
+  - https://wiki.ubuntu.com/Kernel/KernelDebuggingTricks
+  - https://tc.gtisc.gatech.edu/cs8803/2014/r/kernel-exploits.pdf

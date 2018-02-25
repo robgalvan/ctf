@@ -1,0 +1,20 @@
+Lab06: array
+============
+
+  A simulator and its source code.
+  
+  The target binary is:
+  
+      CANARY    : ENABLED
+      FORTIFY   : disabled
+      NX        : ENABLED
+      PIE       : disabled
+      RELRO     : Partial
+
+- target    : target
+- arch      : 45
+- level     : 35
+- points    : 20
+- release   : 09-29-2015 00:00:00
+- deadline  : 10-20-2015 00:00:00
+- hashval   : 66085E08

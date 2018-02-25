@@ -1,0 +1,18 @@
+Lab09: sandbox-pin
+==================
+
+  Pin is a dynamic binary instrumentation framework by intel.
+  Since Pin can capture and control syscall, one might think making sandbox with pin.
+  However, Pin is not for sandboxing, but binary instrumentation.
+  So, memory safety is not considered and Pin based sandbox can be easily escaped.
+  
+  * ref:
+  https://software.intel.com/en-us/articles/pin-a-dynamic-binary-instrumentation-tool
+
+- target    : pin-2.14-71313-gcc.4.4.7-linux/intel64/bin/pinbin
+- arch      : 32
+- level     : 30
+- points    : 20
+- release   : 11-03-2015 00:00:00
+- deadline  : 11-10-2015 00:00:00
+- hashval   : 63E68C9B

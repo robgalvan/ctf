@@ -1,0 +1,110 @@
+Disclaimer
+===========
+The following lab and executables have been written and provided
+in the course CS6265 at Georgia Institute of Technology in Fall 2015.
+The copyright and ownerhsip belongs to teacher's of CS6265 lab please do not distribute 
+this work as your own. The payloads and the writeups on how to solve (crack)
+each executable have been written by me (author) and I am not responsible for 
+the way you use the shellcodes or the knowledge provided in this repository.
+
+If you want to discuss or undertand how to solve the any of the labs, please 
+leave me a message on Github, I have compiled some of common things needed to solve
+each problem in the repository in the "NOTES" file in the home folder.
+
+You cannot capture the flag in any of the problems as it requires an API key to 
+download the flag, but you can check if your shellcode is executed by analysing 
+it in GDB.
+
+------------------------------
+Welcome to CS 6265 Infosec Lab
+------------------------------
+
+Introduction
+============
+
+This git repository will be your workspace to solve the labs and
+problems for this course. It contains lab materials as well as
+some utility scripts to help you with the lab.
+
+The labs and the executables have been tested on ubuntu/trusty32 and ubuntu/trusty64
+please follow the setup commands on how to set the lab environment.
+
+
+
+Lab Setup
+=========
+; Install virtualbox
+sudo apt-get install virtualbox
+
+; Install vagrant
+sudo apt-get install vagrant
+
+; Mac and Windows users can download Virtualbox and vagrant from the
+following links:
+Vagrant: https://www.vagrantup.com/downloads.html
+Virtualbox: https://www.virtualbox.org/wiki/Downloads
+
+; Install Ubuntu/trusty32 and Ubuntu/trusty64 images 
+vagrant box add ubuntu/trusty32
+vagrant box add ubuntu/trusty64
+
+; Make separate folders for 32bit and 64bit lab
+(32 bit example)
+mkdir seclab32
+
+; Initialise vagrant in the folder
+vagrant init ubuntu/trusty32
+
+; To start vagrant use
+vagrant up
+
+; To log in to the vagrant machine use
+vagrant ssh
+
+; Once you are in the VM, install Git and GDB using
+sudo apt-get install git
+sudp apt-get install gdb
+
+; To get the lab
+git clone git@github.com:agupta402/Exploits.git
+
+
+
+File layouts
+============
+
+The file structure of this repo will look like the following:
+
+$ ls
+README		: this file
+bin/		: utility scripts
+labNN/		: materials for labNN
+
+For each lab, it contains a README file as well as all challenges
+as its subdirectories.
+
+$ ls lab01/
+README		: information about this lab
+bomblab		: challenge bomblab
+shellcode32	: challenge shellcode32
+...
+
+* Do read those README files as they contain very helpful information
+about how to complete each lab and problem, including additional
+reference materials and readings.
+
+
+Commmands
+=========
+
+; get new labs and problems
+$ git pull
+
+; initialize your environment
+; (this only has to be done once if you do not change the machine)
+$ ./bin/init
+
+
+; some of the labs require some preprocessing to be done and will
+have init scripts, run the init script before completing the lab
+./init.sh

@@ -1,0 +1,15 @@
+lab02 - frobnicated
+===================
+
+  Nothing works as it is, and often manipulated.
+  
+    $ man memfrob
+
+
+- arch      : 32
+- target    : target
+- level     : 25
+- points    : 20
+- release   : 08-25-2015 00:00:00
+- deadline  : 09-01-2015 00:00:00
+- hashval   : 25BA8BAD

@@ -1,0 +1,18 @@
+Lab09: sandbox-ptrace
+=====================
+
+  Ptrace can be used for sandbox, by blocking syscall.
+  It is a simple sandbox, how can you bypass it?
+  
+  * How to use
+  gcc -c -o sample.o sample.S
+  ld -o sample sample.o
+  ./target ./sample
+
+- target    : target
+- arch      : 64
+- level     : 10
+- points    : 20
+- release   : 11-03-2015 00:00:00
+- deadline  : 11-10-2015 00:00:00
+- hashval   : F2F9F703

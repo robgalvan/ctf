@@ -1,0 +1,18 @@
+Lab08: snake
+============
+
+  Do you know Snake game?
+  This is a snake game in github with vulnerability that allows you to read flag.
+  
+  ref : https://github.com/troglobit/snake
+  
+  NOTE: the snake-for-flag binary is a pre-build binary based on the same source code.
+  Please use this binary to capture the flag.
+
+- target    : ./target/snake-for-flag
+- arch      : 64
+- level     : 1
+- points    : 20
+- release   : 10-27-2015 00:00:00
+- deadline  : 11-03-2015 00:00:00
+- hashval   : 369C9789

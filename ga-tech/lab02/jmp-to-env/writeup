@@ -1,0 +1,7 @@
+NOTES
+=======
+
+
+-First export shellcode into an environment variable
+-Get the address of the variable in GDB using x/x *((char**) environ)
+-overflow the buffer with the variable address and 268 A's

@@ -1,0 +1,38 @@
+desc
+====
+In this problem, you task is to defuse the bomb and get the flag.
+The binary 'bomb; is an executable that consists of multiple phases.
+Each phase expects you th enter a particular string on stdin. If you 
+enter the expected string, then the phase is defused. Otherwise, the
+the bomb explodes and you get one point deducted. A thorough 
+understanding of how 'bomb' works (in binary level) might help you
+with the problem.
+
+Note: you must maintain Internet connection when you solve this problem
+as it will update your progress (bomb defused/exploded) to the submission 
+site, so be careful and not let the bomb explote!
+
+
+points
+======
+80
+
+
+release
+=======
+08-18-2015 00:00:00
+
+
+deadline
+========
+08-25-2015 00:00:00
+
+
+target
+======
+bomb
+
+
+hashval
+=======
+3BF0013B

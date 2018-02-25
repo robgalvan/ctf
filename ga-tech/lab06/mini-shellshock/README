@@ -1,0 +1,24 @@
+Lab06: mini-shellshock
+======================
+
+  Let's play with a shellshock!
+  
+  -----
+  $ nc [server-1] [port]
+  GET / HTTP/1.0
+  
+  -----
+  
+  What's this protocol? Try visiting through a web browser?
+  
+  * Refs
+   - http://seclists.org/oss-sec/2014/q3/650
+   - https://en.wikipedia.org/wiki/Shellshock_(software_bug)
+
+- target    : bash_3.0-13_amd64/bin/bash
+- arch      : 64
+- level     : 10
+- points    : 20
+- release   : 09-29-2015 00:00:00
+- deadline  : 10-20-2015 00:00:00
+- hashval   : 9179A8B2

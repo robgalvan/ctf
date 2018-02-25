@@ -1,0 +1,12 @@
+Lab06: ieee754
+==============
+
+  Let's overflow with floating point
+
+- target    : target
+- arch      : 32
+- level     : 20
+- points    : 20
+- release   : 09-29-2015 00:00:00
+- deadline  : 10-20-2015 00:00:00
+- hashval   : CF44476E

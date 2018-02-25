@@ -1,0 +1,4 @@
+Function chain = <open-flag><read_flag><show-flag>
+
+Payload = <47 A's><FN_OPENFLAG><POP/RET><CANARY of OPENFLAG><FN_READFLAG><POP/POP/RET>
+<CANARY_READFLAG_1><CANARY_READFLAG_2><FN_SHOWFLAG><GARBAGE>

@@ -1,0 +1,85 @@
+#!/usr/bin/env python2
+
+import os
+import sys
+import tempfile
+import subprocess
+import string
+import optparse
+
+from utils import *
+
+def submit_exploit(exploit, lab, prob):
+    html = curl("%s/upload/exploit/%s/%s" % (URL, lab, prob),
+                "-s", "-f",
+                "-F", "exploit=@%s" % exploit,
+                "-F", "key=%s" % get_api_key())
+    if html == "":
+        print("[!] failed to upload the write-up")
+        exit(1)
+
+    print(html) 
+
+def submit_flag(flag, lab, prob):
+    flag = normalize_flag(flag)
+
+    html = curl("%s/upload/flag/%s/%s" % (URL, lab, prob),
+                "-s", "-f",
+                "-F", "flag=%s" % flag,
+                "-F", "key=%s" % get_api_key())
+    if html == "":
+        print("[!] failed to upload the flag")
+        exit(1)
+
+    print(html)
+
+
+if __name__ == "__main__":
+    parser = optparse.OptionParser()
+    parser.add_option("-c", "--checkin",
+                      help="checkin", action="store_true",
+                      dest="checkin", default=False)
+    parser.add_option("-l", "--lab",
+                      help="lab", action="store",
+                      dest="lab", default=None)
+    parser.add_option("-p", "--problem",
+                      help="problem", action="store",
+                      dest="problem", default=None)
+    parser.add_option("-f", "--flag",
+                      help="submit flag", action="store_true",
+                      dest="flag", default=None)
+    parser.add_option("-e", "--exploit",
+                      help="exploit", action="store_true",
+                      dest="exploit", default=None)
+
+    (opts, args) = parser.parse_args()
+
+    check_api_key()
+
+    if opts.checkin:
+        print("> checking in %s" % checkin())
+        exit(0)
+
+    lab = opts.lab
+    prob = opts.problem
+
+    f = []
+    if len(args) == 0:
+        if opts.flag:
+            f.append(read_flag())
+        else:
+            print("it is not a good idea to pipelining a write-up")
+    else:
+	if opts.flag:
+            for pn in args:
+                f.append(open(pn).read())
+        else:
+            for pn in args:
+                f.append(pn)
+
+    for e in f:
+        if opts.flag:
+            submit_flag(e, lab, prob)
+        if opts.exploit:
+            submit_exploit(e, lab, prob)
+

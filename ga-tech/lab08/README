@@ -1,0 +1,23 @@
+------------
+Lab08: misc1
+------------
+
+Various topics are covered in this lab, including int overflow, race
+conditions, time-of-check-time-of-use and bad-casting vulnerabilities.
+
+* Problems
+
+  + [level 01] snake                [20 points]
+  + [level 02] double-staged-fsb    [20 points]
+  + [level 03] race                 [20 points]
+  + [level 04] intq                 [20 points]
+  + [level 05] 2048-int             [20 points]
+  + [level 06] urandom              [20 points]
+  + [level 07] tictou               [20 points]
+  + [level 08] type                 [20 points]
+  + [level 09] django               [20 points]
+  + [level 10] closed-stdout        [20 points]
+
+* Refs
+  - http://phrack.org/issues/60/10.html
+  - http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html

@@ -1,0 +1,18 @@
+Lab06: 2kills
+=============
+
+  One exploit works for two binary. Your goal is to exploit two binary
+  at once and print out the following strings
+  
+     "READ_THIS_FIRST"          from target1
+     "YOU_SHOULD_READ_THIS_TOO" from target2
+  
+     (without quote)
+
+- target    : server.py
+- arch      : 32
+- level     : 50
+- points    : 20
+- release   : 09-29-2015 00:00:00
+- deadline  : 10-20-2015 00:00:00
+- hashval   : C4818243

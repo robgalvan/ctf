@@ -1,0 +1,14 @@
+Lab09: sandbox-seccomp
+======================
+
+  Seccomp(Secure computing mode) used for sandbox by allowing specific syscalls.
+  What happens if there are two threads and one thread enables seccomp?
+  Will the seccomp affect on other thread? Let's try.
+
+- target    : target
+- arch      : 32
+- level     : 15
+- points    : 20
+- release   : 11-03-2015 00:00:00
+- deadline  : 11-10-2015 00:00:00
+- hashval   : 127FDD62

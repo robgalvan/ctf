@@ -1,0 +1,13 @@
+Lab03: xor
+==========
+
+  Try overwriting the return address? It is protected with
+  Random XOR canary.
+
+- target    : target
+- arch      : 32
+- level     : 10
+- points    : 20
+- release   : 09-01-2015 00:00:00
+- deadline  : 09-15-2015 00:00:00
+- hashval   : E991E2F5

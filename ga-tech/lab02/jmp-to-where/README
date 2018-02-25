@@ -1,0 +1,13 @@
+lab02 - jmp-to-where
+====================
+
+  No more environment, arguments, and buffer. Where can you jump?
+
+
+- arch      : 32
+- target    : target
+- level     : 30
+- points    : 20
+- release   : 08-25-2015 00:00:00
+- deadline  : 09-01-2015 00:00:00
+- hashval   : D094F82B

@@ -1,0 +1,4 @@
+I used the libc open, read and write functions to get the flag.
+I used the address of stdout to store the flag, for some reason the write function was not printing the flag
+but the read function was storing it as specified location, so I got the core dump and analysed the
+read location mem address to get the flag in gdb

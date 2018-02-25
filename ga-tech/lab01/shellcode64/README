@@ -1,0 +1,57 @@
+desc
+====
+
+This problem will prepare you to write shellcode on 64 bit architecture,
+which is the basics for advanced exploitation. Write a shellcode program
+that reads the flag from /proc/flag and submit the flag.
+
+
+points
+======
+30
+
+
+release
+=======
+08-18-2015 00:00:00
+
+
+deadline
+========
+08-25-2015 00:00:00
+
+
+hashval
+=======
+EECAB0CB
+
+
+target
+======
+target
+
+
+instruction
+================
+
+ ; build
+ $ make
+
+ ; shellcode to launch
+ $ objdump -m i386:x86-64 -D -b binary shellcode.bin
+
+ ; fire
+ $ (cat shellcode.bin; echo;  cat) | ./target
+ ...
+ cat /proc/flag
+
+ - Unfortunately that is not your flag. Write a payload
+   (readflag.S) that directly reads the flag.
+
+ ; run your shellcode
+ $ cat readflag.bin | ./target
+
+ ; submit your flag
+ $ submit -l lab01 -p shellcode64 -f <flag-file>
+
+ ; note: you must get your flag through the ./tareget binary

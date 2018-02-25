@@ -1,0 +1,13 @@
+lab02 - argc0
+=============
+
+  argc needs to be 0. What's a potential attack vector to this binary?
+
+
+- arch      : 32
+- target    : target
+- level     : 35
+- points    : 20
+- release   : 08-25-2015 00:00:00
+- deadline  : 09-01-2015 00:00:00
+- hashval   : FED043B2

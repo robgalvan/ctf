@@ -1,0 +1,24 @@
+Lab09: kproc-bufovfl
+====================
+
+  Buf overflows in the kernel are critical types of bugs
+  as they often result in local privilege escalations.
+  
+  ; insert 
+  $ sudo insmod kproc.ko
+  
+  ; interact with module
+  $ echo hi > /proc/target
+  
+  Get the root shell and submit your flag. 
+  
+  * Refs
+    - https://tc.gtisc.gatech.edu/cs8803/2014/r/kernel-exploits.pdf
+    - https://packetstormsecurity.com/files/cve/CVE-2015-7892
+
+- target    : kproc.ko
+- arch      : 64
+- level     : 40
+- points    : 20
+- release   : 11-03-2015 00:00:00
+- deadline  : 11-10-2015 00:00:00

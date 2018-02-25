@@ -1,0 +1,12 @@
+Lab07: uaf-basic
+================
+
+  Exploring a preliminary concept of the use-after-free vulnerability.
+
+- target    : target
+- arch      : 32
+- level     : 5
+- points    : 20
+- release   : 10-20-2015 00:00:00
+- deadline  : 10-27-2015 00:00:00
+- hashval   : 641167A5

@@ -1,0 +1,31 @@
+------
+Lab-02
+------
+
+This lab will train you in exploiting buffer overflows, which is a
+very common flaw and most of the time the first step of sophisticated
+attacks.
+
+
+* Problems
+
+  + simple-bof      [20 points] level 1
+  + lack-of-four    [20 points] level 2
+  + jmp-to-env      [20 points] level 3
+  + jmp-to-stack    [20 points] level 4
+  + frobnicated     [20 points] level 5
+  + jmp-to-where    [20 points] level 6
+  + argc0           [20 points] level 7
+  + unusal-main     [20 points] level 8
+  + man-strncpy     [20 points] level 9
+  + upside-down     [20 points] level 10
+
+You need 130 points to get the full grade.
+
+
+* Refs
+
+  - http://phrack.org/issues/49/14.html
+  - http://phrack.org/issues/55/8.html
+  - http://www.cs.ucsb.edu/~kemm/courses/cs177/bufovfl.pdf
+  - http://www.sans.org/reading-room/whitepapers/threats/buffer-overflows-dummies-481

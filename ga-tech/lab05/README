@@ -1,0 +1,26 @@
+----------
+Lab05: rop
+----------
+
+Return-oriented programming (ROP). It is, in essence, same as ret-to-lib(c)
+that we've learned last week, but remember all binaries are somewhat
+complicated. Have fun!
+
+* Problems
+
+  + [level 01] rop-basic            [20 points]
+  + [level 02] rop-simple           [20 points]
+  + [level 03] rop-64               [20 points]
+  + [level 04] upto-retaddr         [20 points]
+  + [level 05] static               [20 points]
+  + [level 06] puzzle               [20 points]
+  + [level 07] source-code          [20 points]
+  + [level 08] fmtstr-relro         [20 points]
+  + [level 09] sprintf              [20 points]
+  + [level 10] inc1                 [20 points]
+
+You need 110 points to get the full grade.
+
+* Refs
+  - https://www.blackhat.com/presentations/bh-usa-08/Shacham/BH_US_08_Shacham_Return_Oriented_Programming.pdf
+  - http://blog.exploitlab.net/2013/06/dive-into-rop-blackhat-usa-2013.html

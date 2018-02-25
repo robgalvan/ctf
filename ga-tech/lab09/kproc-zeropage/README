@@ -1,0 +1,25 @@
+Lab09: kproc-zeropage
+=====================
+
+  A simple exploitation technique is to map shellcode (or payload) on
+  the target memory region (in userspace) and trigger a bug
+  in the kernel to jump to that payload.
+  
+  ; insert
+  $ sudo insmod kproc.ko
+  
+  ; interact with module
+  $ echo hi > /proc/target
+  
+  Get the root shell and submit your flag. 
+  
+  * Refs
+    - https://lwn.net/Articles/347006/
+    - https://lwn.net/Articles/419141/
+
+- target    : kproc.ko
+- arch      : 64
+- level     : 45
+- points    : 20
+- release   : 11-03-2015 00:00:00
+- deadline  : 11-10-2015 00:00:00

@@ -1,0 +1,4 @@
+1: Load the shellcode in ENV variable
+2: Shellcode = <Address of env variable><Addr of first strcpy><Address of env><Nopsled><Addr of beginning of payload>
+
+The trick is to get the second strcpy to jump back to start of your payload without overwriting everything, the Addr of fiurst strcpy ensures that.

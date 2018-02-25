@@ -1,0 +1,26 @@
+------
+Lab-01
+------
+
+This is a warm-up lab that prepares you with the basic techniques 
+used throughout this course. It is also a good chance to setup your 
+lab endivonment and familarize youself with the submission system.
+
+  + [80 points] bomblab
+  + [30 points] shellcode32
+  + [30 points] shellcode64
+  + [30 points] shellcode-min
+  + [30 points] shellcode-ascii
+
+  - [ 5 points] whenever you explod a bomb
+  + [20 points] for the smallest shellcode
+
+You need 130 points to get the full grade.
+
+* Refs
+
+  $ man syscall
+  $ ascii
+
+  - http://ref.x86asm.net/index.html
+  - https://nets.ec/Alphanumeric_shellcode

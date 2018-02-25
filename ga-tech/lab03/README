@@ -1,0 +1,30 @@
+----------------------
+Lab03: protected-stack
+----------------------
+
+Miners would carry a bird, canary, down into the mine tunnels. If dangerous gases
+collected in the mine, the gases would kill the canary before killing the miners,
+avoiding disastrous situations.
+
+To mitigate buffer overflow attacks, canaries have been placed to protect
+the return address in the stack. We will explore various forms of canary
+schemes in this lab.
+
+* Problems
+
+  + [level 01] xor                  [20 points]
+  + [level 02] stackshield          [20 points]
+  + [level 03] weak-random          [20 points]
+  + [level 04] terminator           [20 points]
+  + [level 05] assassination        [20 points]
+  + [level 06] gs-random            [20 points]
+  + [level 07] ssp                  [20 points]
+  + [level 08] mini-heartbleed      [20 points]
+  + [level 09] pltgot               [20 points]
+  + [level 10] fd                   [20 points]
+
+* Refs
+
+  - https://en.wikipedia.org/wiki/Buffer_overflow_protection
+  - http://phrack.org/issues/56/5.html
+  - http://www.coresecurity.com/files/attachments/StackGuard.pdf

@@ -1,0 +1,7 @@
+NOTES
+========
+
+
+The main function stores the value of overloaded value of ebp into ecx-0x4, it then loads the value of ecx-0x4 to esp which is i turn loaded to eip.
+In order to load my shellcode to eip, my payload was 
+<start of shellcode><start of shellcode><NOPSled><shellcode><Addrr of begining of payload+0x4>

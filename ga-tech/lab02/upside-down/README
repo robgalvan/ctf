@@ -1,0 +1,14 @@
+lab02 - upside-down
+===================
+
+  You can implement 'stack' in various other ways. In this weird world,
+  stack goes up, increasing (rather than down, decreasing). Who knows?
+  we were currently living in the weird world; already got used to it.
+
+- arch      : 32
+- target    : target
+- level     : 80
+- points    : 20
+- release   : 08-25-2015 00:00:00
+- deadline  : 09-01-2015 00:00:00
+- hashval   : 19B5A6E0

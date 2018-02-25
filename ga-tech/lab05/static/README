@@ -1,0 +1,21 @@
+Lab05: static
+=============
+
+  A static binary is built with tons of unused functions that
+  attackers often use as gadgets.
+  
+  The target binary is:
+  
+      CANARY    : disabled
+      FORTIFY   : disabled
+      NX        : ENABLED
+      PIE       : disabled
+      RELRO     : Partial
+
+- target    : target
+- arch      : 32
+- level     : 40
+- points    : 20
+- release   : 09-22-2015 00:00:00
+- deadline  : 09-29-2015 00:00:00
+- hashval   : E10EA7D1

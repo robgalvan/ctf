@@ -1,0 +1,23 @@
+Lab08: closed-stdout
+====================
+
+  In fact, if binary is not protected by PIE,
+  leak is not required for reading a flag.
+  
+  ref : http://phrack.org/issues/58/4.html
+  
+  The target binary is:
+  
+      CANARY    : disabled
+      FORTIFY   : disabled
+      NX        : ENABLED
+      PIE       : disabled
+      RELRO     : Partial
+
+- target    : target
+- arch      : 32
+- level     : 50
+- points    : 20
+- release   : 10-27-2015 00:00:00
+- deadline  : 11-03-2015 00:00:00
+- hashval   : 6EF65674

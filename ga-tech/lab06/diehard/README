@@ -1,0 +1,16 @@
+Lab06: diehard
+==============
+
+  Canary goes crazy. Never die. How can we efficiently guess? Try this challenge
+  in your local environment, first!
+  
+  $ ./target
+  $ nc localhost 9735
+
+- target    : target
+- arch      : 64
+- level     : 30
+- points    : 20
+- release   : 09-29-2015 00:00:00
+- deadline  : 10-20-2015 00:00:00
+- hashval   : E849323F

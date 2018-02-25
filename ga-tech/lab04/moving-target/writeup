@@ -1,0 +1,7 @@
+We can overflow the ./target program with 68 bytes of input
+To find the address of jump_to_here, run the ./target binary and attach gdb to it 
+Get the address of jump_to_here from gdb
+Overflow this address in ./target, since according to entropy change only the middle two 
+chars change then the probability that the above addr will be valid is 1/256
+
+I wrote a script that will load payload into the binary until you get a flag and will ignore all the errors

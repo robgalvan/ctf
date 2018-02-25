@@ -1,0 +1,20 @@
+Lab07: dlmalloc2
+================
+
+  A classical heap overflow. Jump to heap!
+  
+  The target binary is:
+  
+      CANARY    : disabled
+      FORTIFY   : disabled
+      NX        : disabled
+      PIE       : disabled
+      RELRO     : Partial
+
+- target    : target
+- arch      : 32
+- level     : 15
+- points    : 20
+- release   : 10-20-2015 00:00:00
+- deadline  : 10-27-2015 00:00:00
+- hashval   : 74C4E448

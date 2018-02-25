@@ -1,0 +1,13 @@
+lab02 - lack-of-four
+====================
+
+  You cannot ovewrite return address. What can you do?
+
+
+- arch      : 32
+- target    : target
+- level     : 20
+- points    : 20
+- release   : 08-25-2015 00:00:00
+- deadline  : 09-01-2015 00:00:00
+- hashval   : D53D3277

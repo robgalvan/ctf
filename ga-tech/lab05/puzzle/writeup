@@ -1,0 +1,3 @@
+We need to chain ROP_ATTACK_TEMPLATE together, using strcpy and storing it in a buffer in the assembly
+We can use puts to print out the string 
+

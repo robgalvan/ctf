@@ -1,0 +1,14 @@
+Lab06: rop-sorting
+==================
+
+  ROP is known to be Turing Complete. In this lab, we are going to
+  implement a sorting algorithm by using ROP. Note, however,
+  it's fine to utilize exisiting libc functions.
+
+- target    : target.py
+- arch      : 32
+- level     : 50
+- points    : 20
+- release   : 09-29-2015 00:00:00
+- deadline  : 10-20-2015 00:00:00
+- hashval   : E387F6C9

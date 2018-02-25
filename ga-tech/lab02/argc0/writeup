@@ -1,0 +1,6 @@
+NOTES
+=========
+
+-I created a executable that takes in the shellcode from my jump to stack code and loads it into the target executable using execve function, the args paramter was kept NULL and the first element of the envp array was the shellcode.
+- when I ran my exectuable, I got a core dump which I opened in gdb to find the starting address of my payload in the stack of target executable.
+-I modified my shellcode with this address and compiled and ran the newly formed executable to get the flag

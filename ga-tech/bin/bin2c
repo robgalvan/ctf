@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+
+import sys
+
+if len(sys.argv) != 2:
+    print("Need a filename e.g,. %s [shellcode.bin]" % sys.argv[0])
+    exit(1)
+
+bin = open(sys.argv[1], "rb").read()
+out = []
+for (i, b) in enumerate(bin):
+    out.append("\\x%02x" % b)
+    if i % 16 == 15:
+        out.append("\n")
+print("".join(out))

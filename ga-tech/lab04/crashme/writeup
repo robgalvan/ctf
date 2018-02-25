@@ -1,0 +1,5 @@
+Write more than 10 chars to crash the binary
+From the core dump get the mappings of the process using info proc mappings
+get the start address of target file and add 0x2040 to its address to get the starting of the flag
+
+The flag is loaded in the memory, so if you crash it and get the core dumop then you will get the flag in core dump

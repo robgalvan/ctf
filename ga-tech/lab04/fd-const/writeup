@@ -1,0 +1,5 @@
+The file descriptor can be shared with another child process of the parent
+We can open the file in parent and make sure that the file descriptor is equal to 3
+Since the file descriptor is constant to 3 then the file opened by the assembly 
+will have a different file descritpor number than 3, thus the file opened in parent program will be
+opended

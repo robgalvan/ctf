@@ -1,0 +1,95 @@
+#!/usr/bin/env python2
+
+# 1. check if curl is installed
+# 2. check arch
+# 3. download kflag.ko
+# 4. insert
+
+import os
+import platform
+
+from utils import *
+
+ROOT  = os.path.dirname(__file__)
+KFLAG = os.path.join(ROOT, "kflag.ko")
+
+def check_arch():
+    return platform.architecture()[0][0:2]
+
+def check_kernel():
+    return platform.release().split("-")[0]
+
+def install_kflag(bit):
+    try:
+        subprocess.check_call("sudo insmod %s" % KFLAG, shell=True)
+    except subprocess.CalledProcessError as e:
+        print(e.output)
+        print("Failed to insert module")
+        exit(-1)
+
+def download_kflag(kernel, bit):
+    if os.path.exists(KFLAG):
+        os.unlink(KFLAG)
+
+    curl("%s/getko/%s/%s" % (URL, kernel, bit),
+         "-s", "-f", "-O",
+         "-F", "key=%s" % get_api_key())
+
+    os.rename(bit, KFLAG)
+
+def test_kflag():
+    try:
+        print(subprocess.check_output("cat /proc/flag", shell=True))
+        print("> kflag installed successfully")
+    except subprocess.CalledProcessError as e:
+        print(e.output)
+
+def exist_kflag():
+    try:
+        out = subprocess.check_output("lsmod | grep kflag", shell=True)
+        if len(out) == 0:
+            return False
+        else:
+            return True
+    except subprocess.CalledProcessError as e:
+        print(e.output)
+        return None
+
+def uninstall_kflag():
+    try:
+        print(subprocess.check_output("sudo rmmod kflag", shell=True))
+        print("> kflag module uninstalled")
+    except subprocess.CalledProcessError as e:
+        print(e.output)
+        return None
+
+def check_packages():
+    PKGS = []
+    
+    for p in ["curl", "tee", "gdb"]:
+        out = subprocess.check_output("which %s" % p, shell=True)
+        if len(out) > 0:
+            print("> %s available at %s" % (p, out.strip()))
+        else:
+            PKGS.append(p)
+    
+    if len(PKGS) != 0:
+        system("sudo apt-get install %s" % " ".join(PKGS))
+        
+if __name__ == "__main__":
+
+    check_api_key()
+    check_packages()
+    
+    if exist_kflag():
+        uninstall_kflag()
+
+    kernel=check_kernel()
+    print("> kernel: %s" % kernel)
+    bit = check_arch()
+    print("> architecture: %s bit" % bit)
+    download_kflag(kernel, bit)
+    print("> kflag module downloaded")
+    install_kflag(bit)
+    print("> kflag module installed")
+    test_kflag()

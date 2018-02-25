@@ -1,0 +1,14 @@
+Lab07: heap-spray
+=================
+
+  Find a flag on the heap (heap spraying)!
+  
+  nc trypticon.gtisc.gatech.edu 8012
+
+- target    : target
+- arch      : 32
+- level     : 10
+- points    : 20
+- release   : 10-20-2015 00:00:00
+- deadline  : 10-27-2015 00:00:00
+- hashval   : F2C8864A

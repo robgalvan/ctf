@@ -1,0 +1,13 @@
+Lab09: sandbox-ptrace2
+======================
+
+  Oh... there was a mistake at my sandbox.
+  I removed a certain syscall, then is it safe?
+
+- target    : target
+- arch      : 64
+- level     : 20
+- points    : 20
+- release   : 11-03-2015 00:00:00
+- deadline  : 11-10-2015 00:00:00
+- hashval   : 358F600F

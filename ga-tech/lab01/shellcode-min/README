@@ -1,0 +1,49 @@
+desc
+====
+
+This problem will prepare you to write short and concise shellcode
+to make your shellcode more flexible and powerful, e.g. evade
+length-filtering based protection.
+Write a shellcode program that reads the flag from /proc/flag and 
+submit the flag. Minimize the size of the shellcode as much as you can. 
++ Student who writes The smallest shellcode in size will get +20 bonus points
+
+
+points
+======
+30
+
+
+release
+=======
+08-18-2015 00:00:00
+
+
+deadline
+========
+08-25-2015 00:00:00
+
+
+hashval
+=======
+168E856F
+
+
+target
+======
+target
+
+
+instruction
+===========
+
+ ; build
+ $ make
+
+ ; run your shellcode
+ $ cat readflag.bin | ./target
+
+ ; submit your flag
+ $ submit -l lab01 -p shellcode-min -f <flag-file>
+
+ ; note: you must get your flag through the ./tareget binary

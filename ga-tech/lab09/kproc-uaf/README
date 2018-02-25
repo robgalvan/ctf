@@ -1,0 +1,19 @@
+Lab09: kproc-uaf
+================
+
+  Exploit use-after-free bugs in the kernel (see paper)!
+  
+  ; insert
+  $ sudo insmod kproc.ko
+  
+  Get the root shell and submit your flag. 
+  
+  * Refs
+   - http://loccs.sjtu.edu.cn/~romangol/download/papers/gossip_ccs2015.pdf
+
+- target    : kproc.ko
+- arch      : 64
+- level     : 60
+- points    : 20
+- release   : 11-03-2015 00:00:00
+- deadline  : 11-10-2015 00:00:00

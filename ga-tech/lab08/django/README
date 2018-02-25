@@ -1,0 +1,25 @@
+Lab08: django
+=============
+
+  Python has object serialization, called cPickle
+  But arbitrary deseralization in cPickle can cause Arbitrary Code Execution.
+  Your challenge is to read './flag' by attacking this simple django program which uses PickleSerializer
+  
+  http://trypticon.gtisc.gatech.edu:8030
+  
+  For local testing,
+  cd target && python manage.py runserver 0.0.0.0:[port]
+  
+  * Ref
+    - https://docs.python.org/2/library/pickle.html
+    - https://blog.nelhage.com/2011/03/exploiting-pickle/
+    - https://github.com/django/django/blob/53ccffdb8c8e47a4d4304df453d8c79a9be295ab/django/contrib/sessions/serializers.py
+    - https://docs.djangoproject.com/en/1.8/topics/http/sessions/
+
+- target    : target/auth/views.py
+- arch      : 32
+- level     : 35
+- points    : 20
+- release   : 10-27-2015 00:00:00
+- deadline  : 11-03-2015 00:00:00
+- hashval   : 0BFC5F8F

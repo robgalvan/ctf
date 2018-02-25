@@ -1,0 +1,33 @@
+Lab08: urandom
+==============
+
+  urandom is used as random source for many cryptographic library.
+  However, you can guess the output of urandom.
+  
+  Anything looks interesting?
+  
+  $ ulimit -a
+  -t: cpu time (seconds)              unlimited
+  -f: file size (blocks)              unlimited
+  -d: data seg size (kbytes)          unlimited
+  -s: stack size (kbytes)             8192
+  -c: core file size (blocks)         0
+  -m: resident set size (kbytes)      unlimited
+  -u: processes                       46924
+  -n: file descriptors                1024
+  -l: locked-in-memory size (kbytes)  unlimited
+  -v: address space (kbytes)          unlimited
+  -x: file locks                      unlimited
+  -i: pending signals                 46924
+  -q: bytes in POSIX msg queues       819200
+  -e: max nice                        30
+  -r: max rt priority                 99
+  -N 15:                              unlimited
+
+- target    : target
+- arch      : 32
+- level     : 20
+- points    : 20
+- release   : 10-27-2015 00:00:00
+- deadline  : 11-03-2015 00:00:00
+- hashval   : 95619E31

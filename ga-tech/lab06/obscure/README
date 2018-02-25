@@ -1,0 +1,12 @@
+Lab06: obscure
+==============
+
+  What's this? Exploitations are not so different across platforms.
+
+- target    : run.sh
+- arch      : 32
+- level     : 20
+- points    : 20
+- release   : 09-29-2015 00:00:00
+- deadline  : 10-20-2015 00:00:00
+- hashval   : 804FA323 

@@ -1,0 +1,23 @@
+Lab05: rop-64
+=============
+
+  Make a simple ROP chain on x86-64.
+  
+  The target binary is:
+  
+      CANARY    : disabled
+      FORTIFY   : disabled
+      NX        : ENABLED
+      PIE       : disabled
+      RELRO     : Partial
+  
+  * Ref
+    - http://crypto.stanford.edu/~blynn/rop/
+
+- target    : target
+- arch      : 64
+- level     : 12
+- points    : 20
+- release   : 09-22-2015 00:00:00
+- deadline  : 09-29-2015 00:00:00
+- hashval   : 9B042DB9

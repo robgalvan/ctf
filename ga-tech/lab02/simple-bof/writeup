@@ -1,0 +1,6 @@
+NOTES
+================
+
+- The assembly instruction to replace is at $ebp+0x4, the number of charachters required to repalce this register are 64.
+The input was given through echo -e command, the input was:
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA12345678x65x86x04x08n

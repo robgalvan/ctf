@@ -1,0 +1,15 @@
+Lab08: tictou
+=============
+
+  Time-of-check-time-of-use (TICTOU) in a web site! There are two
+  sites opened synchronously to serve all students.
+  
+     http://trypticon.gtisc.gatech.edu:8020
+     http://trypticon.gtisc.gatech.edu:8021
+
+- target    : target
+- arch      : 32
+- level     : 30
+- points    : 20
+- release   : 10-27-2015 00:00:00
+- deadline  : 11-10-2015 00:00:00

@@ -1,0 +1,18 @@
+Lab09: sandbox-chroot
+=====================
+
+  chroot is used for changing root directory.
+  However, chroot is not intended to defend against priviledged users(root).
+  Therefore, if you are in chroot, but root permission, you can escape chroot jail.
+  
+  - How to run
+    sudo ./server.py
+    nc localhost 8080
+
+- target    : target
+- arch      : 64
+- level     : 5
+- points    : 20
+- release   : 11-03-2015 00:00:00
+- deadline  : 11-10-2015 00:00:00
+- hashval   : 1FD3B369

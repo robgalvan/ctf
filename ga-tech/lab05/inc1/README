@@ -1,0 +1,21 @@
+Lab05: inc1
+===========
+
+  You can increase an arbitrary memory by one. How can we exploit
+  this binary?
+  
+  The target binary is:
+  
+      CANARY    : disabled
+      FORTIFY   : disabled
+      NX        : ENABLED
+      PIE       : disabled
+      RELRO     : Partial
+
+- target    : target
+- arch      : 32
+- level     : 90
+- points    : 20
+- release   : 09-22-2015 00:00:00
+- deadline  : 09-29-2015 00:00:00
+- hashval   : E419ADF7

@@ -1,0 +1,20 @@
+Lab03: ssp
+==========
+
+  The binary is built with SSP (Stack Smashing Protector) in gcc, namely
+  -fstack-protector, to prevent the stack overflow. Unfortunately, the
+  stack protector is still exploitable.
+  
+  This binary is protected by SSP.
+  
+      $ ../../../bin/checksec.sh --file target
+      RELRO           STACK CANARY NX            PIE     RPATH      RUNPATH      FILE
+      Partial RELRO   Canary found NX disabled   No PIE  No RPATH   No RUNPATH   ./target
+
+- target    : target
+- arch      : 32
+- level     : 45
+- points    : 20
+- release   : 09-01-2015 00:00:00
+- deadline  : 09-15-2015 00:00:00
+- hashval   : 2A7210FA

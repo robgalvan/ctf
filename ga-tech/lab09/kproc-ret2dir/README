@@ -1,0 +1,28 @@
+Lab09: kproc-ret2dir
+====================
+
+  Unlike VM allows the execution of userspace from the kernel (as you tested
+  in the kproc-zeropage), modern hardware implements a defense mechanism,
+  called Supervisor Mode Execution Protection (SMEP), which prevents any
+  userspace execution in ring 0. However, for some architectures
+  including x86-64 (w/ the old Linux kernel), you can still bypass with
+  an exploitation technique, called ret2dir.
+  
+  NOTE. We set physmaps executable for you.
+  
+  ; insert
+  $ sudo insmod kproc.ko
+  
+  Get the root shell and submit your flag. 
+  
+  * Refs
+   - http://www.cs.columbia.edu/~vpk/papers/ret2dir.sec14.pdf
+   - https://www.usenix.org/conference/usenixsecurity14/technical-sessions/presentation/kemerlis
+   - http://lwn.net/Articles/267837/
+
+- target    : kproc.ko
+- arch      : 64
+- level     : 55
+- points    : 20
+- release   : 11-03-2015 00:00:00
+- deadline  : 11-10-2015 00:00:00

@@ -1,0 +1,19 @@
+Lab03: gs-random
+================
+
+  This binary is protected with Microsoft GS, a per-process random
+  canary, but still bypassible. What happen if 'buf' is overflowed?
+  
+  void foo(char *msg) {
+    char buf[80];
+    strcpy(buf, msg);
+    strcpy(msg, buf);
+  }
+
+- target    : target
+- arch      : 32
+- level     : 40
+- points    : 20
+- release   : 09-01-2015 00:00:00
+- deadline  : 09-15-2015 00:00:00
+- hashval   : C8EEE11A

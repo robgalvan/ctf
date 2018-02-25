@@ -1,0 +1,14 @@
+Lab07: storage
+==============
+
+  Mimic the below ctf problem which is heap overflow with up-to-date malloc.
+  
+  ref : https://github.com/ctfs/write-ups-2014/tree/master/hitcon-ctf-2014/stkof
+
+- target    : target
+- arch      : 32
+- level     : 70
+- points    : 20
+- release   : 10-20-2015 00:00:00
+- deadline  : 10-27-2015 00:00:00
+- hashval   : 6E13E2E8

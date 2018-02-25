@@ -1,0 +1,29 @@
+Lab07: linked-list2
+===================
+
+  Oh, I notice that I made a very very simple mistake and successfully patched
+  it. Following is the patch log.
+  
+  // patch.diff
+  7a8
+  >   int size;
+  35a37
+  >   new->size = size;
+  114,116d115
+  <   printf("Size?\n");
+  <   int size = read_int();
+  <
+  118c117
+  <   read_with_null(0, ptr->data, size);
+  ---
+  >   read_with_null(0, ptr->data, ptr->size);
+  
+  Can you still exploit this?
+
+- target    : target
+- arch      : 32
+- level     : 80
+- points    : 20
+- release   : 10-20-2015 00:00:00
+- deadline  : 10-27-2015 00:00:00
+- hashval   : 2E7B8086
