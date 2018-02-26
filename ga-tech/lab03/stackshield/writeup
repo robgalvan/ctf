@@ -1,0 +1,10 @@
+NOTES
+=============
+
+
+-I tested the overflow limit by progressing feeding the binary with large garbage values of "A"'s, the overflow limit was 156 were the last four bytes were the ones that the binary was jumping to.
+- I stored my shellcode in the Environment variables, got an address using a C function to get the address of environment variables.
+
+- Fed the payload with 152 "A"'s and address of shellcode into the binary and got the core dump.
+
+- Analysed the core dump to get the actual address of the ENV variable and updated the addres in the payload to get the flag.

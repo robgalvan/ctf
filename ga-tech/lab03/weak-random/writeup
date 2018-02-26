@@ -1,0 +1,8 @@
+NOTES
+============
+
+
+Payload = <NOPSLED><SHELLCODE><Random value got by printing future time><Address in NOP>*3
+
+I printed random values for a future time and wrote a functtion that busy waits until that time
+and then calls the target executable with my payload as input, I manually changed the payload to reflect this random value.
