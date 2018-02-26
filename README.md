@@ -1,9 +1,6 @@
 # CTF Solutions and Scripts
 
 
-## Challenges Completed
----
-
 ### PWN
 
 - [pivot32](rop-emporium/pivot32/) (2/26/18) - used a gadget to pivot ESP since we can overwrite EIP but we do not control the stack.Call a function from shared lib to populate GOT entry. Used puts to leak GOT entry of function. Calculate address of "win" function also located in shared lib. Call main again to now execute the "win" function.  
