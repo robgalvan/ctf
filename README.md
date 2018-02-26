@@ -1,1 +1,5 @@
-CTF Solutions and Scripts
+# CTF Solutions and Scripts
+
+## Challenges Completed
+
+- [ropasaurusrex][ropasaurusrex] - Test
