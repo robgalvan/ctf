@@ -2,4 +2,4 @@
 
 ## Challenges Completed
 
-- [ropasaurusrex][ropasaurusrex] - Test
+- [ropasaurusrex](train/ropasaurusrex/) - Test
