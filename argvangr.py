@@ -2,12 +2,12 @@ import angr
 import claripy
 
 
-pr = angr.Project("./qqq")
+pr = angr.Project("./0x7")
 inp = claripy.BVS('inp',8*57)
 argv = ['?', inp]
 state = pr.factory.entry_state(args=argv)
 simgr = pr.factory.simgr(state)
-simgr.explore(find=0x4006c0,avoid=0x4006d1)
+simgr.explore(find=0x40090b,avoid=0x400820)
 
 found = simgr.found
 
