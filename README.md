@@ -3,6 +3,7 @@
 
 ### PWN
 
+- [pivot64](rop-emporium/pivot64/) (2/27/18) - Same as pivot32 but need to adapt for 64 bit calling conventions. Learned how to leak 64 bit addresses since it is 6 bytes but u64() requires 8 bytes. 
 - [pivot32](rop-emporium/pivot32/) (2/26/18) - used a gadget to pivot ESP since we can overwrite EIP but we do not control the stack.Call a function from shared lib to populate GOT entry. Used puts to leak GOT entry of function. Calculate address of "win" function also located in shared lib. Call main again to now execute the "win" function.  
 - [ropasaurusrex](train/ropasaurusrex/) (2/25/18) - learned how to use write to leak adresses from memory and how to use read to write to memory. Used both to leak got entries, calculate address of another function in library with leak, change a got entry in binary to another function in library, finally call the function using old functions plt.
 - [fluff32](rop-emporium/fluff32/) (2/23/18) - used non trival ROP gadgets to solve. Example no "mov [eax],edx;ret" gadgets. 
