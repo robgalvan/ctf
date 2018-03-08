@@ -77,6 +77,7 @@ if __name__ == "__main__":
         r = process(binary_name, env={"LD_PRELOAD" : "./libc.so.6"})
         print util.proc.pidof(r)
         gdb_cmd = [
+            "b *0x804841d",
             "b *0x804841C",
             "c"
 
@@ -85,6 +86,6 @@ if __name__ == "__main__":
         if(gdb_bool):
             gdb.attach(r, gdbscript = "\n".join(gdb_cmd))
         #r = process("./LOLgame", env={"LD_PRELOAD" : "./libc.so.6.remote"})
-        #pause()
+        pause()
         exploit(r)
 
