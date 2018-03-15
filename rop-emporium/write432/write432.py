@@ -49,7 +49,7 @@ if __name__ == "__main__":
         r = process(binary_name)
         print util.proc.pidof(r)
         gdb_cmd = [
-            "b *0x804864B",
+            "b *0x804864b",
             "c"
 
 
