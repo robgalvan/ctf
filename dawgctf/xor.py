@@ -7,7 +7,7 @@ def solution(input_data):
     return result
 
 def main():
-    input_data = open('ascii.txt', 'r').read()
+    input_data = open('enc', 'r').read()
     result_data=''
     result_data=solution(input_data)
     out_file = open("solution.txt", 'w')
