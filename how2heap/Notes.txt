@@ -1,0 +1,135 @@
+- Heap is area where you can dynamically allocate memory. Memory is global and can be accessed with pointers. 
+- Heap has a small degradation in performance when compared to using the stack.
+- <stdlib.h> provides the library functions to access, modify and manage dynamic memory.
+
+
+malloc(size_t n): returns a pointer to newly allocated chuck of at least n bytes.
+	or NULL if no space is available. If N is zero is will return a min sized chunk.
+	Min size is 16 bytes for most 32 bit and 24 or 32 bytes on 64 bit.
+
+free(void *p): release the chunk of memory pointed by p
+
+Both of these library calls use the two system calls: sbrk and mmap.
+
+sbrk: obtains memory from kernel by increasing program break location.
+	  Initially brk and star_brlk point to the same location.
+	  Without ASLR they both point to to end of data/bss segment
+	  With ASLR they point to end of bss/data segment + random offset
+
+mmap: create a private anonymous mapping segment. Used to allocate new memory
+	  and this memory is used by the calling process.
+
+-------------------------------------------------------------------------------------
+
+Notes to keep in mind:
+		- Instead of size_t, INTERNAL_SIZE_T is used internally (which by default is==size_t)
+		- Alignment is defined as 2 * (sizeof(size_t))
+		- MORECORE is defined as the routine to call to obtain more memory. By default it is defined as sbrk
+
+Chunk:
+		struct malloc_chunk {
+		  INTERNAL_SIZE_T      mchunk_prev_size;  /* Size of previous chunk (if free).  */
+		  INTERNAL_SIZE_T      mchunk_size;       /* Size in bytes, including overhead. */
+		  struct malloc_chunk* fd;                /* double links -- used only if free. */
+		  struct malloc_chunk* bk;
+		  /* Only used for large blocks: pointer to next larger size.  */
+		  struct malloc_chunk* fd_nextsize; /* double links -- used only if free. */
+		  struct malloc_chunk* bk_nextsize;
+		};
+
+typedef struct malloc_chunk* mchunkptr;
+
+
+Allocated Chunk:
+	chunk-> +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	            |             Size of previous chunk, if unallocated (P clear)  |
+	            +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	            |             Size of chunk, in bytes                     |A|M|P|
+	      mem-> +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	            |             User data starts here...                          .
+	            .                                                               .
+	            .             (malloc_usable_size() bytes)                      .
+	            .                                                               |
+	nextchunk-> +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	            |             (size of chunk, but used for application data)    |
+	            +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	            |             Size of next chunk, in bytes                |A|0|1|
+	            +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+Free Chunk:
+	    chunk-> +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	        |             Size of previous chunk, if unallocated (P clear)  |
+	        +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	`head:' |             Size of chunk, in bytes                     |A|0|P|
+	  mem-> +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	        |             Forward pointer to next chunk in list             |
+	        +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	        |             Back pointer to previous chunk in list            |
+	        +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	        |             Unused space (may be 0 bytes long)                .
+	        .                                                               .
+	        .                                                               |
+	nextchunk-> +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	`foot:' |             Size of chunk, in bytes                           |
+	        +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	        |             Size of next chunk, in bytes                |A|0|0|
+	        +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+
+
+Malloc State:
+	Structure that represents the header details of an Arena.
+
+
+Bin:
+	is a list (doubly or singly linked list) of FREE (non allocated) chunks. 
+	Bins come in different sizes:
+				- Fast Bin
+				- Unsorted Bin
+				- Small Bin
+				- Large Bin
+
+	Fast Bin - 
+			there are 10 fast bins. Each Bin maintains a single linked list. Addition
+			and deletion to the list happens at the front. Each bins chunks are the
+			same sizes: Each have chunks of sizes 16,24,32,40,48,56,64,72,80,88
+
+	Unsorted Bin - 
+			There is only 1 unsorted bin. Small and large cunks when freed end up in 
+			this bin. This bin acts a cache layer to speed up things
+
+	Small Bin - 
+			There are 62 small bins. Small bins are faster than large bins but slower 
+			than fast bins. Doubly linked list. FIFO. 62 bins with sizes 16,24...,504
+			While freeing small chunks may be coalesced together before ending up 
+			in the unsorted bin
+
+	Large Bin - 
+			There are 63 large bins. Doubly linked list. Large bins have varying chunk
+			sizes. Sorted by decreasing order. Largest chunk at the HEAD 
+			smallest at the the TAIL. Insertions and removals happen at the correct
+			position.
+
+			First 32 bins contain chunk which are 64 bytes apart:
+				1 bin: 512 - 568 bytes
+				2nd bin: 576 -632 bytes
+				...
+
+	No. of Bins       Spacing between bins
+
+	64 bins of size       8  [ Small bins]
+	32 bins of size      64  [ Large bins]
+	16 bins of size     512  [ Large bins]
+	8 bins of size     4096  [ ..        ]
+	4 bins of size    32768
+	2 bins of size   262144
+	1 bin  of size what's left
+
+	Top Chunk:
+		Chunk which borders the top of an arena. It is used as a last resort. If still
+		more size is required it can use sbrk system call.
+
+	Last Remainder Chunk:
+		chunk obtained from the last split. Sometimes when exact size chunks are not
+		available bigger chinks are split into two. The part nit returned to the user
+		is the last remainder chunk.
