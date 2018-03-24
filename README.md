@@ -3,6 +3,7 @@
 
 ### PWN
 
+- [how2heap](Starting to learn heap) (2018-03-12 - cont) - Began the journey to learn heap stuff.
 - [DawgCTF](dawgctf) (2018-03-10) - CTF at UMBC. Placed second. Mainly did the RE and PWN challenges. One of of two people to solve the ROP challenge. Practice pays off :)
 - [scv](train/scv) (2018-03-09) - x64 bit challenege where you must leak a stack canary. Learned stack canaries start with a null byte to prevent leakage. So we can overwrite the first null byte a "\x0a" (new line). Then leak the rest of it.
 - [Pwnabletw - Start & orw](pwnabletw) (2018-03-09) - Shellcoding challenges. One involved writing syscall shellcode. After completing, I read a write up that used pwntools in a new way I have not seen before.
