@@ -3,6 +3,7 @@
 
 ### PWN
 
+-[Hackernote](pwnabletw/chall_hacknote) - First heap challenge completed. Learned how to leak libc address of main_arena from a small bin. Use that to calculate the address of system and overwrite a function pointer to print out a chunk with system.
 - [how2heap](how2heap) (2018-03-12 - cont) - Began the journey to learn heap stuff.
 - [DawgCTF](dawgctf) (2018-03-10) - CTF at UMBC. Placed second. Mainly did the RE and PWN challenges. One of of two people to solve the ROP challenge. Practice pays off :)
 - [scv](train/scv) (2018-03-09) - x64 bit challenege where you must leak a stack canary. Learned stack canaries start with a null byte to prevent leakage. So we can overwrite the first null byte a "\x0a" (new line). Then leak the rest of it.
